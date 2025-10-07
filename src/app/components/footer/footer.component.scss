@@ -1,0 +1,36 @@
+.container{
+  background-color: rgba(242, 255, 255, 1);
+  padding: 0 100px;
+  height: 225px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .footer-left{
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    align-items: flex-start;
+
+    p{
+      font-weight: 400;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 81%;
+      letter-spacing: 1.2px; /* 6% von 20px */
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+
+  .footer-right{
+    display: flex;
+    gap: 60px;
+
+    svg{
+      cursor: pointer;
+    }
+  }
+
+}

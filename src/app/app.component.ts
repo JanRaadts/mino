@@ -1,36 +1,45 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { NgStyle } from '@angular/common';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { NgIf, NgStyle } from '@angular/common';
+import { TeaserComponent } from './views/teaser/teaser.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { ButtonComponent } from './components/button/button.component';
+import { LandingPageComponent } from './views/landing-page/landing-page.component';
+import { ContactComponent } from './views/contact/contact.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgStyle],
+  imports: [TeaserComponent, MenuComponent, ButtonComponent, NgIf, LandingPageComponent, ContactComponent, FooterComponent, RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit, OnDestroy{
-  styles = [
-    { color: '#FE5353', fontFamily: 'Arial' },
-    { color: '#83E468', fontFamily: 'Courier New' },
-    { color: '#6FB0FF', fontFamily: 'Georgia' },
-    { color: '#404040', fontFamily: 'Verdana' }
-  ];
-
-  currentStyleIndex = 0;
-  intervalId: any;
+export class AppComponent {
+  isMobile = true;
+  isMenuOpen = false;
 
   ngOnInit() {
-    this.intervalId = setInterval(() => {
-      this.currentStyleIndex = (this.currentStyleIndex + 1) % this.styles.length;
-    }, 250);
+    this.checkScreenSize();
   }
 
-  ngOnDestroy() {
-    clearInterval(this.intervalId);
+  @HostListener('window:resize')
+  onResize() {
+    this.checkScreenSize();
   }
 
-  get currentStyle() {
-    return this.styles[this.currentStyleIndex];
+  checkScreenSize() {
+    this.isMobile = window.innerWidth <= 768;
+    if (!this.isMobile) {
+      this.isMenuOpen = false; // sicherheitshalber schließen
+    }
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
   }
 }

@@ -1,0 +1,35 @@
+<div class="outer">
+  <div class="container">
+    <h2>ANFRAGE</h2>
+    <div class="description-container">
+      <h3>Du planst ein eigenes Event?</h3>
+      <p>Ich freue mich, von dir zu hören. Gemeinsam finden wir das passende Kaffeekonzept für deinen Anlass.</p>
+    </div>
+
+    <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+      <div class="input-label-container">
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" type="text" />
+      </div>
+
+      <div class="input-label-container">
+        <label for="email">E-Mail:</label>
+        <input id="email" formControlName="email" type="email" />
+      </div>
+
+      <div class="input-label-container">
+        <label for="location">Standort:</label>
+        <input id="location" formControlName="location" type="text" />
+      </div>
+
+      <div class="input-label-container">
+        <label for="message">Anfrage:</label>
+        <textarea id="message" formControlName="message"></textarea>
+      </div>
+
+      <app-button style="padding-top: 16px" [text]="'ANFRAGE SENDEN'" type="submit" [disabled]="requestForm.invalid"></app-button>
+    </form>
+
+  </div>
+</div>
+

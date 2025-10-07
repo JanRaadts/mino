@@ -1,0 +1,47 @@
+<div class="menu-wrapper" [class.blur-overlay]="isMenuOpen && isMobile">
+
+  <!-- Desktop-Menü -->
+  <nav class="menu-desktop" *ngIf="!isMobile">
+    <div class="pages">
+      <svg width="104" height="42" viewBox="0 0 104 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_521_78)">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M18.055 11.9453C5.73895 0.709044 -4.51042 15.0377 7.20723 26.8624C16.4504 36.1894 20.7262 36.6076 22.7406 35.7651C24.42 35.0614 24.9558 33.0655 23.507 31.0399C22.4998 29.6325 20.0202 28.3902 16.7383 24.3769C14.3622 21.4702 15.9432 17.7649 19.9669 21.3345C22.8246 23.869 24.4712 27.9772 26.6526 28.8747C27.6424 29.2826 28.5707 29.0205 28.5851 27.5651C28.6301 22.896 25.7018 13.417 27.0133 12.901C28.4959 12.3176 30.6937 15.2365 30.8167 24.3004C30.8505 26.8063 30.0247 30.0282 30.2788 32.2842C30.496 34.2088 33.0924 33.7294 33.3937 32.069C34.2533 27.3152 37.8149 10.2013 31.2634 4.82844C29.1763 3.11704 26.3299 1.75853 21.7723 4.1859C18.4669 5.94625 18.0621 8.92334 18.055 11.9453Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M40.0477 2.64408C37.6623 3.2142 36.9522 5.31009 37.1664 7.85067C37.6797 13.9425 41.4729 16.0007 36.4686 33.6828C36.1284 34.8832 33.8425 39.7012 38.1644 40.2499C42.9576 40.8598 43.3592 35.6389 43.5437 33.2595C44.2865 23.6418 44.2496 22.2089 44.514 16.1272C44.5417 15.4887 44.6195 8.9695 43.683 5.54161C42.8213 2.39011 41.1502 2.37992 40.0477 2.64408Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M58.1948 35.0797C53.8985 37.1491 51.7796 30.4371 49.4588 26.1933C42.7731 13.9728 50.508 -0.66582 61.6611 3.51782C66.4256 5.30571 68.0875 12.8397 67.7422 22.3768C67.4482 30.4942 66.8949 38.1782 63.1816 36.2842C61.6088 35.4826 60.7348 34.4311 61.9603 31.2714C62.2892 30.4228 63.9532 23.0357 59.9202 17.4252C55.7848 11.6709 51.5839 17.3528 56.041 23.6793C57.7511 26.1076 63.7247 32.4157 58.1948 35.0797Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M78.7037 4.31234C87.1692 -0.117094 95.1182 8.22367 96.7546 9.74741C110.649 22.6869 93.4204 40.4261 77.6811 34.0089C70.562 31.1062 69.2157 21.0918 71.0456 14.5165C72.5805 9.00084 76.1063 5.67085 78.7037 4.31234ZM85.2911 11.8107C77.2508 20.7756 82.2079 26.0097 88.4274 24.59C93.1663 23.5089 93.86 17.6751 93.113 15.2477C91.404 9.69029 86.8352 10.0901 85.2911 11.8107Z" fill="black"/>
+        </g>
+        <defs>
+          <clipPath id="clip0_521_78">
+            <rect width="104" height="41" fill="white" transform="translate(0 0.5)"/>
+          </clipPath>
+        </defs>
+      </svg>
+      <p>KONTAKT</p>
+      <p>ÜBER MICH</p>
+    </div>
+    <app-button [text]="'JETZT ANFRAGEN'"></app-button>
+  </nav>
+
+
+  <!-- Mobile-Menü -->
+  <div class="menu-mobile" *ngIf="isMobile">
+    <div class="burger-icon" (click)="toggleMenu()">
+      ☰
+    </div>
+
+    <div class="mobile-menu-panel" [class.open]="isMenuOpen">
+      <div style="display: flex; flex-direction: column">
+        <a href="#" (click)="closeMenu()">Home</a>
+        <a href="#" (click)="closeMenu()">Speisekarte</a>
+        <a href="#" (click)="closeMenu()">Kontakt</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Der restliche Seiteninhalt -->
+  <div class="page-content" [class.blurred]="isMenuOpen && isMobile">
+    <app-teaser></app-teaser>
+    <app-teaser></app-teaser>
+  </div>
+</div>

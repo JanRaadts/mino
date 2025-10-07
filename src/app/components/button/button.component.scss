@@ -1,0 +1,21 @@
+.button-outer-container{
+  padding: 16px 24px;
+  border-radius: 16px;
+  border-width: 2px;
+  border-style: solid; /* nötig, damit border sichtbar ist */
+  border-color: rgba(0, 0, 0, 1); /* kannst du bei Bedarf anpassen */
+  cursor: pointer;
+
+  p{
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 1; /* entspricht 100% */
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+  }
+}
+
+.button-outer-container:hover {
+  background-color: rgba(255, 255, 255, 0.25); /* optional, um Hover-Effekt zu zeigen */
+}
