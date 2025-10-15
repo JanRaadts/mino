@@ -9,6 +9,10 @@
   top: 0;
   background-color: rgba(255, 223, 119, 1);
 
+  svg:focus{
+    outline: none;
+  }
+
   .pages{
     display: flex;
     gap: 64px;
@@ -43,6 +47,10 @@
   height: 80px;
   width: 100%;
 
+  svg:focus{
+    outline: none;
+  }
+
   .burger-icon {
     font-size: 2rem;
     cursor: pointer;
@@ -62,6 +70,8 @@
     gap: 1.5rem;
     transition: right 0.3s ease;
     z-index: 5;
+
+
 
     .link{
       margin-top: 80px;
