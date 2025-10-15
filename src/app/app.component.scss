@@ -103,6 +103,7 @@
 
 .page-content {
   transition: filter 0.3s ease;
+  overflow: hidden;
 
   //&.blurred {
   //  filter: blur(4px);
