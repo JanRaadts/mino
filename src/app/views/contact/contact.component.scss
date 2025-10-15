@@ -1,7 +1,7 @@
 @use '../../../styles' as *;
 
 .outer{
-  height: calc(100svh - 133px);
+  min-height: calc(100svh - 133px);
   background-color: rgba(255, 244, 210, 1);
 
   .container{
