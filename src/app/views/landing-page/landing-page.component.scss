@@ -1,7 +1,7 @@
 @use '../../../styles' as *;
 
 .container{
-  height: calc(100svh - 133px);
+  min-height: calc(100svh - 133px);
 
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@
 }
 
 .second-container{
-  height: calc(100svh - 133px);
+  min-height: calc(100svh - 133px);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -56,7 +56,8 @@
   }
 
   @include mobile {
-    height: calc(100svh - 80px);
+    height: auto;
+    min-height: calc(100svh - 80px);
     overflow: hidden;
     flex-direction: column;
 
@@ -68,7 +69,7 @@
 }
 
 .third-container{
-  height: calc(100svh - 80px);
+  min-height: calc(100svh - 80px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -152,7 +153,7 @@
 }
 
 .fourth-container{
-  height: calc(100svh - 133px);
+  min-height: calc(100svh - 133px);
   background-image: repeating-linear-gradient(
       45deg,        /* Winkel: schräg */
       rgba(171, 235, 204, 1) 0,       /* Schwarzer Streifen beginnt bei 0px */
