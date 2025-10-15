@@ -1,5 +1,5 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, HostListener, inject, OnDestroy, OnInit } from '@angular/core';
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { NgIf, NgStyle } from '@angular/common';
 import { TeaserComponent } from './views/teaser/teaser.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -8,6 +8,7 @@ import { LandingPageComponent } from './views/landing-page/landing-page.componen
 import { ContactComponent } from './views/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -19,12 +20,16 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 export class AppComponent implements OnInit{
   isMobile = true;
   isMenuOpen = false;
+  router = inject(Router)
 
-//  ngOnInit() {
-//    this.checkScreenSize();
-//  }
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) {
+    this.router.events
+    .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
+    .subscribe(() => {
+      window.scrollTo({ top: 0, behavior: 'auto' }); // 👈 immer nach oben scrollen
+    });
+  }
 
   ngOnInit() {
     this.breakpointObserver
@@ -38,18 +43,6 @@ export class AppComponent implements OnInit{
       console.log(this.isMobile);
     });
   }
-
-//  @HostListener('window:resize')
-//  onResize() {
-//    this.checkScreenSize();
-//  }
-//
-//  checkScreenSize() {
-//    this.isMobile = window.innerWidth <= 768;
-//    if (!this.isMobile) {
-//      this.isMenuOpen = false; // sicherheitshalber schließen
-//    }
-//  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
