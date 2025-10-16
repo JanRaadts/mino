@@ -27,7 +27,7 @@
         <textarea id="message" formControlName="message"></textarea>
       </div>
 
-      <app-button style="padding-top: 16px" [text]="'ANFRAGE SENDEN'" type="submit" [disabled]="requestForm.invalid"></app-button>
+      <app-button style="padding-top: 16px" [text]="'ANFRAGE SENDEN'" type="submit" [disabled]="requestForm.invalid" (click)="sendMessage()"></app-button>
     </form>
 
   </div>
