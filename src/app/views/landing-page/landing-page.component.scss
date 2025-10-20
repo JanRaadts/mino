@@ -9,6 +9,12 @@
   align-items: center;
   gap: 20px;
 
+  .background-image{
+    background-image: url('/assets/coffee-cup.png');
+    height: 100%;
+    width: 100%;
+  }
+
   h1{
     font-weight: 400;
     font-style: normal;
@@ -21,6 +27,11 @@
 
   @include mobile {
     height: 100svh;
+
+    svg{
+      width: 325px;
+      height: 128px;
+    }
   }
 }
 
@@ -208,7 +219,14 @@
 }
 
 .yellow-bg{
-  background-color: rgba(255, 223, 119, 1);
+  //background-color: rgba(255, 223, 119, 1);
+  background: linear-gradient(rgba(255, 223, 119, 0.41), rgba(255, 223, 119, 0.41)),
+url('/assets/mino-desktop-bg.png') center / cover no-repeat;
+
+  @include mobile {
+    background: linear-gradient(rgba(255, 223, 119, 0.41), rgba(255, 223, 119, 0.41)),
+    url('/assets/mino-smartphone-bg.png') center / cover no-repeat;
+  }
 }
 
 .light-green-bg{
